@@ -6,7 +6,7 @@ namespace StackADT
     {
         private static void Main(string[] args)
         {
-            // Clear console and set up colorful UI
+            // Clear console and set up colourful UI
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("╔════════════════════════════════════════════════════╗");
@@ -29,8 +29,9 @@ namespace StackADT
                 Console.WriteLine("║ 1. ⬆ Push an element            ║");
                 Console.WriteLine("║ 2. ⬇ Pop the top element        ║");
                 Console.WriteLine("║ 3. 👀 Peek at the top           ║");
-                Console.WriteLine("║ 4. 📜 Print entire stack        ║");
-                Console.WriteLine("║ 5. ❌ Exit                      ║");
+                Console.WriteLine("║ 4. 📜 Print stack               ║");
+                Console.WriteLine("║ 5. 🔄 Reverse stack             ║");
+                Console.WriteLine("║ 6. ❌ Exit                      ║");
                 Console.WriteLine("╚═════════════════════════════════╝");
                 Console.ResetColor();
 
@@ -38,7 +39,7 @@ namespace StackADT
                 if (!int.TryParse(Console.ReadLine(), out int choice))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("⚠ Invalid input! Please enter a number 1–5.");
+                    Console.WriteLine("⚠ Invalid input! Please enter a number 1–6.");
                     Console.ResetColor();
                     continue;
                 }
@@ -83,6 +84,14 @@ namespace StackADT
                         break;
 
                     case 5:
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                        Console.WriteLine("🔄 Stack has been reversed!");
+                        s.reverse();
+                        s.print();
+                        Console.ResetColor();
+                        break;
+
+                    case 6:
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("❌ Exiting program... Goodbye, Stack Master!");
                         Console.ResetColor();

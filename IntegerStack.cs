@@ -47,7 +47,7 @@ namespace StackADT
         { 
             if(isEmpty())
             {
-                Console.WriteLine("Stack Underflow!!");
+                Console.WriteLine("⚠ Stack underflow!");
                 return -1;
             }
             else
@@ -61,12 +61,13 @@ namespace StackADT
         {
             if (isEmpty())
             {
-                Console.WriteLine("Stack Empty");
+                Console.WriteLine("⚠ Stack is empty!");
                 return -1;
             }                
             else
                 return stack[top];
         }
+
         public void print()
         {
             if (isEmpty())
@@ -76,6 +77,23 @@ namespace StackADT
                 Console.WriteLine("The elements of Stack are: ");
                 for (int i = top; i >= 0; i--)                
                     Console.WriteLine(stack[i]);                
+            }
+        }
+
+        public void reverse()
+        {
+            if (top == -1) return;
+
+            int left = 0;
+            int right = top;
+
+            while (left < right)
+            {
+                int temp = stack[left];
+                stack[left] = stack[right];
+                stack[right] = temp;
+                left++;
+                right--;
             }
         }
     }
